@@ -60,8 +60,8 @@ install_packages "${DEV_TOOLS[@]}"
 echo "Installing system maintenance tools..."
 install_packages "${MAINTENANCE[@]}"
 
-echo "Installing desktop environment..."
-install_packages "${DESKTOP[@]}"
+#echo "Installing desktop environment..."
+#install_packages "${DESKTOP[@]}"
 
 echo "Installing desktop environment..."
 install_packages "${OFFICE[@]}"
@@ -84,15 +84,15 @@ for service in "${SERVICES[@]}"; do
 done
 
 # Install gnome specific things to make it like a tiling WM
-echo "Installing Gnome extensions..."
-. gnome/gnome-extensions.sh
-echo "Setting Gnome hotkeys..."
-. gnome/gnome-hotkeys.sh
-echo "Configuring Gnome..."
-. gnome/gnome-settings.sh
+#echo "Installing Gnome extensions..."
+#. gnome/gnome-extensions.sh
+#echo "Setting Gnome hotkeys..."
+#. gnome/gnome-hotkeys.sh
+#echo "Configuring Gnome..."
+#. gnome/gnome-settings.sh
 
 # Some programs just run better as flatpaks. Like discord/spotify
 echo "Installing flatpaks (like discord and spotify)"
-. install-flatpaks.sh
+#. install-flatpaks.sh
 
 echo "Setup complete! You may want to reboot your system."
