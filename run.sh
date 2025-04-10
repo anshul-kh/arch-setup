@@ -19,6 +19,14 @@ print_logo
 # Exit on any error
 set -e
 
+# chaotic AUR setup
+echo "setting up chaotic aur"
+sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
+sudo pacman-key --lsign-key 3056513887B78AEB
+sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'
+sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
+echo -e "\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" | sudo tee -a /etc/pacman.conf
+
 # Source utility functions
 source utils.sh
 
@@ -94,5 +102,8 @@ done
 # Some programs just run better as flatpaks. Like discord/spotify
 echo "Installing flatpaks (like discord and spotify)"
 #. install-flatpaks.sh
+
+echo "Let's Setup Hyprland Baby!!!"
+bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-arch.sh)
 
 echo "Setup complete! You may want to reboot your system."
